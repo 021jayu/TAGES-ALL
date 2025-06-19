@@ -1,0 +1,213 @@
+<html>
+   <head>
+    <title> All Tages</title>
+     <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    
+      
+    
+      height: 100vh;
+    }
+
+    .upload-wrapper {
+      text-align: left;
+    }
+
+    .upload-box {
+      position: relative;
+      display: inline-block;
+      padding: 30px 30px;
+      background: #fff;
+      border: 3px dashed #aaa;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .upload-box:hover {
+      border-color: #4CAF50;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload-box input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .upload-icon {
+      font-size: 40px;
+      left: 33;
+      color: #4CAF50;
+      animation: bounce 1.2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .file-name {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+ 
+   .search-box {
+      width: 25%;
+      min-width: 18px;
+      padding: 20px;
+      background: #fff;
+      border: 3px dashed #aaa;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .search-box:hover {
+      border-color: #4CAF50;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .search-box form {
+    
+    }
+
+    .search-box input[type="search"] {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      background: #f9f9f9;
+    }
+
+    .search-box button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .search-box button:hover {
+      background: #45a049;
+    }
+
+  </style>
+   </head> 
+  
+   <body>
+   All Tages <br> <br> 
+
+    <div class="search-box">
+    <form>
+      <input type="search" placeholder="Search">
+      <button type="submit">🔍</button>
+   <br> <br>
+   <input type="text" name="Jayesh" placeholder="Name"> <br> <br>
+
+
+   <input type="email" name="Email" placeholder="email"> <Br> <br>
+    <div class="upload-wrapper">
+    <label class="upload-box">
+      <div class="upload-icon">📁</div>
+      <div>Click to upload file</div>
+      <input type="file" id="fileInput">
+    </label>
+    <div class="file-name" id="fileName">No file selected</div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const fileNameDisplay = document.getElementById("fileName");
+
+    fileInput.addEventListener("change", function () {
+      const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file selected";
+      fileNameDisplay.textContent = fileName;
+    });
+  </script>
+  
+  
+  <br>
+    <form>
+  <p>Select your favorite fruits:</p>
+  <label><input type="checkbox" name="fruits" value="apple"> Apple</label><br>
+  <label><input type="checkbox" name="fruits" value="banana"> Banana</label><br>
+  <label><input type="checkbox" name="fruits" value="cherry"> Cherry</label><br>
+</form>
+<form>
+  <p>Choose your gender:</p>
+  <label><input type="radio" name="gender" value="male"> Male</label><br>
+  <label><input type="radio" name="gender" value="female"> Female</label><br>
+  <label><input type="radio" name="gender" value="other"> Other</label>
+</form> 
+<Input type="date"> <br><br>
+            <input type="password" placeholder="password" > <br><br>
+            <input type="month" placeholder=""> <br> <br>
+            <input type="color" style="background-color: aquamarine;, ;" >
+           <br><br> <input type="number" placeholder="Number"> <br><br>
+            <input type="Tel" placeholder="Phone Number"><br><br>
+            <img src="https://th.bing.com/th/id/OIP.l9HIFLW4vorh_7WUSSB-uQHaJl?w=207&h=268&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3"><br><br>
+   
+            <label for="volume">Volume: <span id="volumeValue">50</span></label><br>
+  <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+  
+  <br><br>
+  <input type="reset" value="Reset Volume" onclick="resetVolume()">
+
+  <script>
+    const volumeSlider = document.getElementById('volume');
+    const volumeValue = document.getElementById('volumeValue');
+
+    // Update display when slider changes
+    volumeSlider.oninput = function() {
+      volumeValue.textContent = this.value;
+    }
+
+    // Reset slider and display value
+    function resetVolume() {
+      volumeSlider.value = 50;
+      volumeValue.textContent = 50;
+    }
+    
+  </script><br><br>
+            <input type="time"> 
+            
+   <h2>Current Time:</h2>
+  <div id="clock">--:--:--</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000); // update every 1 second
+    updateClock(); // run once immediately
+  </script>
+   
+   
+        </option>
+   </body>
+
+    </html>
